@@ -1,5 +1,5 @@
 # Passion-JS
-TP JS fonctionnel via Ramda pour monseigneur ROBIN Maxime
+TP JS functional via Ramda for monseigneur ROBIN Maxime
 
 ## Description
 For this project we needed to use the Ramda library on a Dataset :floppy_disk:
@@ -31,7 +31,7 @@ We are in the Artficial Intelligence curriculum
 
 
 
-## Auteurs
+## Authors
 
 **Robin Lotode** - [Robibibi](https://github.com/Robibibi)
 
