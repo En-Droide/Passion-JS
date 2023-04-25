@@ -25,7 +25,7 @@ For this project we needed to use the Ramda library on a Dataset :floppy_disk:
 Javascript
 
 ## 🚀 About Us
-We are from **ESME** an ingeneering school based in Paris 
+We are from **ESME** an engineering school based in Paris 
 <img src="https://www.esme.fr/wp-content/themes/esme-theme-v2/images/design/logo_esme.png"  width="30" height="30">  
 We are in the Artficial Intelligence curriculum  
 
