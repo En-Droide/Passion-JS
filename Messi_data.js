@@ -11,27 +11,33 @@ const csv_file = async (filePath) =>
       .on('data', (data) => results.push(data))
       .on('end', () => {
         resolve(results);
-        console.log(results);
+        //console.log(results);
       });
   });
 
 const lengthLessThan6 = R.pipe(R.length, R.lt(R.__, 6));
 
 const getDate = R.pipe(
-  R.pluck('posting_date'),
+  R.pluck('Date'),
+    R.reject(R.isNil),
   R.map(R.replace(/\D/g, '-')),
   R.map(R.when(lengthLessThan6, R.concat('0')))
 );
 
 const getDayOfWeek = R.pipe(
-  getDate,
-  R.map((date) => {
-    const dayjsDate = dayjs(date, 'MM-DD-YY');
-    return dayjsDate.format('dddd');
-  })
+    getDate,
+    R.map((date) => {
+        const dayjsDate = dayjs(date, 'MM-DD-YY');
+        if (!dayjsDate.isValid()) {
+            throw new Error(`Invalid date format: ${date}`);
+        }
+        return dayjsDate.format('dddd');
+    })
 );
 
-const countDaysOfWeek = R.pipe(getDayOfWeek, R.countBy(R.identity));
+const countDaysOfWeek = R.pipe(
+    getDayOfWeek,
+    R.countBy(R.identity));
 
 const process = R.pipeWith(R.andThen, [
   csv_file,
@@ -39,4 +45,4 @@ const process = R.pipeWith(R.andThen, [
   R.tap(console.log)
 ]);
 
-process('./voitures.csv');
+process('./data_messi.csv');

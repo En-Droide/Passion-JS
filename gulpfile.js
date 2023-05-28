@@ -6,7 +6,7 @@ const {watch, series} = gulp;
 let mainProcess = null;
 
 const start = async () => {
-    mainProcess = spawn('node', ['./test_v1.js'], {stdio: 'inherit'});
+    mainProcess = spawn('node', ['./Messi_data.js'], {stdio: 'inherit'});
 };
 
 const stop = async () => {
